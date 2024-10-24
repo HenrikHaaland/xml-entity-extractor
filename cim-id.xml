@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:cim="http://iec.ch/TC57/2013/CIM-schema-cim16#">
+
+  <!-- Substation -->
+  <cim:Substation rdf:ID="Substation1">
+    <cim:IdentifiedObject.name>Substation 1</cim:IdentifiedObject.name>
+  </cim:Substation>
+
+  <!-- Voltage Level -->
+  <cim:VoltageLevel rdf:ID="VoltageLevel1">
+    <cim:IdentifiedObject.name>Voltage Level 1</cim:IdentifiedObject.name>
+    <cim:VoltageLevel.BaseVoltage rdf:resource="#BaseVoltage1"/>
+    <cim:VoltageLevel.Substation rdf:resource="#Substation1"/>
+  </cim:VoltageLevel>
+
+  <!-- Base Voltage -->
+  <cim:BaseVoltage rdf:ID="BaseVoltage1">
+    <cim:BaseVoltage.nominalVoltage>110.0</cim:BaseVoltage.nominalVoltage>
+  </cim:BaseVoltage>
+
+  <!-- Power Transformer -->
+  <cim:PowerTransformer rdf:ID="Transformer1">
+    <cim:IdentifiedObject.name>Transformer 1</cim:IdentifiedObject.name>
+    <cim:PowerTransformer.Substation rdf:resource="#Substation1"/>
+  </cim:PowerTransformer>
+
+</rdf:RDF>
+
