@@ -1,12 +1,24 @@
-def read_xml_file():
-    file_name = "cim.xml"
+def read_xml_file(file_name, entity_id):
 
+    pattern = f"rdf:ID=\"{entity_id}\""
+    print(pattern)
     try:
         file = open(file_name)
-        print(file.read())
+        for line in file:
+            #print(line, end="")
+
+            if pattern in line:
+                print(f"id found in line {line}")
+                
         file.close()
+        
     except FileNotFoundError: 
         print("file not found")
 
-read_xml_file()
+entity_id = input("skriv inn entity id: ")
+
+#read_xml_file("cim.xml")
+
+read_xml_file("cim-id.xml", entity_id)
+
 
