@@ -6,6 +6,7 @@
 - Extracts entities by ID from XML files
 - Supports large XML files with efficient parsing
 - Easy to integrate into scripts or larger projects
+- two diffrent ways to search for id which is "id" and "about"
 
 ## Usage
 1. Clone the repository
@@ -13,6 +14,6 @@
 
 ## Example
 ```python
-python xml-entity-extractor.py file.xml id
+python xee.py cim-about.xml urn:uuid:4a
 
 ```
