@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
 
-    <Entity rdf:about="urn:uuid:4a2e6276-9e74-4d6e-8583-f3cfda35b9c7">
+    <Entity rdf:about="urn:uuid:4a">
         <name>PowerTransformer</name>
         <voltageLevel>110kV</voltageLevel>
         <location>Substation A</location>
     </Entity>
 
-    <Entity rdf:about="urn:uuid:834adb8d-8e9d-47b1-889b-71b4ae1f3b52">
+    <Entity rdf:about="urn:uuid:83">
         <name>Breaker</name>
         <ratedCurrent>2000A</ratedCurrent>
         <location>Substation B</location>
     </Entity>
 
-    <Entity rdf:about="urn:uuid:231dfb9e-c8e4-45a7-80c9-8bb5a5ad5f6f">
+    <Entity rdf:about="urn:uuid:23">
         <name>VoltageRegulator</name>
         <voltageLevel>10kV</voltageLevel>
         <location>Substation C</location>
     </Entity>
 
-    <Entity rdf:about="urn:uuid:f6d3ed11-0a3c-4a0e-b4e0-2caba42e238a">
+    <Entity rdf:about="urn:uuid:f6">
         <name>CapacitorBank</name>
         <capacity>50MVAR</capacity>
         <location>Substation D</location>
