@@ -4,7 +4,7 @@ def logg(message):
     print(message, file=sys.stderr)
 
 def read_xml_file(file_name, entity_id):
-
+    logg(f"searching for {entity_id} in {file_name}")
     id_pattern = f"rdf:ID=\"{entity_id}\""
 
     about_pattern = f"rdf:about=\"{entity_id}\""
