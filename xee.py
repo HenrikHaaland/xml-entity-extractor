@@ -1,23 +1,28 @@
 import sys
 
+debug = False
+
 def logg(message):
-    print(message, file=sys.stderr)
+    if debug:
+            
+        print(message, file=sys.stderr)
+    
 
 def read_xml_file(file_name, entity_id):
     logg(f"searching for {entity_id} in {file_name}")
     id_pattern = f"rdf:ID=\"{entity_id}\""
 
     about_pattern = f"rdf:about=\"{entity_id}\""
-    
+
     logg(id_pattern)
     logg(about_pattern)
     try:
-        with open(file_name) as file:
+        with open(file_name) as xml:
             line_number = 1
             found_entity = False
             end_tag = ""
 
-            for line in file:
+            for line in xml:
                 if id_pattern in line or about_pattern in line:
                     logg(f"id found in line {line_number} {line}")
                     found_entity = True
