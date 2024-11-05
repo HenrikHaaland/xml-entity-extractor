@@ -11,8 +11,10 @@ def logg(message):
 def read_xml_file(file_name, entity_id):
     logg(f"searching for {entity_id} in {file_name}")
     id_pattern = f"rdf:ID=\"{entity_id}\""
-
+    entity_start_pattern = f"rdf:ID=\""
     about_pattern = f"rdf:about=\"{entity_id}\""
+    resource_pattern = f"rdf:resource=\"#{entity_id}\""
+
 
     logg(id_pattern)
     logg(about_pattern)
@@ -21,21 +23,30 @@ def read_xml_file(file_name, entity_id):
             line_number = 1
             found_entity = False
             end_tag = ""
+            current_entity = []
 
             for line in xml:
-                if id_pattern in line or about_pattern in line:
-                    logg(f"id found in line {line_number} {line}")
+                if entity_start_pattern in line:
                     found_entity = True
                     tag = line.split()[0]
                     end_tag = tag[1:]
                     end_tag = f"</{end_tag}>"
-                    # print(f"Extracted tag: {tag} {end_tag}")
+            
                     
                 if found_entity:
-                    print(line, end="")
+                    current_entity.append(line)
 
                 if end_tag in line and end_tag !="":
                     found_entity = False
+                    found_id = False
+                    for entity_line in current_entity:
+                        if id_pattern in entity_line or about_pattern in entity_line or resource_pattern in entity_line:
+                            found_id = True
+                    if found_id:
+                        for entity_line in current_entity:
+                            print(entity_line, end="")
+
+                    current_entity = []
                     # print("fant slutt tag")
                 line_number = line_number + 1   
 
