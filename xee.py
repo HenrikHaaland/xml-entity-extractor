@@ -1,4 +1,6 @@
 import sys
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 debug = False
 
@@ -31,6 +33,7 @@ def read_xml_file(file_name, entity_id):
                     tag = line.split()[0]
                     end_tag = tag[1:]
                     end_tag = f"</{end_tag}>"
+
             
                     
                 if found_entity:
@@ -44,6 +47,7 @@ def read_xml_file(file_name, entity_id):
                             found_id = True
                     if found_id:
                         for entity_line in current_entity:
+                            entity_line = entity_line.replace(entity_id, f"{Fore.GREEN}{entity_id}{Style.RESET_ALL}")
                             print(entity_line, end="")
 
                     current_entity = []
